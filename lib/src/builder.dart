@@ -234,7 +234,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         // create an image widget for this image
         var imgUrl = element.attributes['src'];
         if(imgUrl is String) {
-          imgUrl.replaceAll('&amp;', '&');
+          imgUrl = imgUrl.replaceAll('&amp;', '&');
         }
         current.children.add(_buildImage(imgUrl));
       } else if (tag == 'a') {
