@@ -232,11 +232,11 @@ class MarkdownBuilder implements md.NodeVisitor {
 
       if (tag == 'img') {
         // create an image widget for this image
-        var imgUrl = _buildImage(element.attributes['src']);
+        var imgUrl = element.attributes['src'];
         if(imgUrl is String) {
           imgUrl.replaceAll('&amp;', '&');
         }
-        current.children.add(imgUrl);
+        current.children.add(_buildImage(imgUrl));
       } else if (tag == 'a') {
         _linkHandlers.removeLast();
       }
